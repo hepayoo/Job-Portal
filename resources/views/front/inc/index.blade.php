@@ -91,6 +91,51 @@ body, html {
         transform: translateX(-100%);
     }
 }
+
+
+
+.offers-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.offer-card {
+    width: calc(33.33% - 20px); /* Three offers per line */
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+.offer-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.offer-description {
+    margin-bottom: 10px;
+    color: #666;
+}
+
+.offer-price {
+    font-style: italic;
+    color: #888;
+}
+
+.offer-company {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.h1 {
+    text-align: center;
+    margin-top: 2em;
+}
 </style>
 
 <div class="content">
@@ -143,8 +188,31 @@ body, html {
         <img src="{{ asset('images/logos/Oracle.png') }}" alt="Oracle">
         <img src="{{ asset('images/logos/Pinterest.png') }}" alt="Pinterest">
         <img src="{{ asset('images/logos/Salesforce.png') }}" alt="Salesforce">
-        <!-- Repeat logos for continuous effect -->
+       
     </div>
 </div>
+
+
+<h1 class="h1" >All Job Offers</h1>
+<div class="offers-container">
+    @foreach($allOffers as $offer)
+        <div class="offer-card">
+         <td><img src="{{ asset('images/logos/' . $offer->img) }}" alt="Offre Image" style="width: 100px; height: auto;"></td>
+            <div class="offer-title">{{ $offer->title }}</div>
+            <div class="offer-description">{{ $offer->description }}</div>
+            <div class="offer-price">{{'$' . $offer->price }}</div>
+            
+                <button type="submit" class="btn btn-primary">Register</button>
+            
+        </div>
+    @endforeach
+</div>
+
+
+
+
+
+
+
 
 @endsection

@@ -18,8 +18,9 @@ Route::get('login', function() {
 })->name('dashboard');
 
 
-
 Route::middleware('auth:company')->prefix('company')->name('company.')->group(function () {
     Route::resource('offres', OffreController::class);
 
 });
+
+require __DIR__.'/auth.php';

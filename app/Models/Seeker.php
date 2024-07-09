@@ -14,3 +14,5 @@ class Seeker extends Model
         return $this->belongsToMany(Offre::class, 'offre_seeker');
     }
 }
+
+

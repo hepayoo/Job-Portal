@@ -23,6 +23,8 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{{route('company.login')}}">Company-register</a>
         </li>
+
+      
        
    
        
